@@ -1,2 +1,3 @@
 # devlog
-a blog for discussing my ongoing game and software development techniques
+
+Repository for my personal game programming devlog.
