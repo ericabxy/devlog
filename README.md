@@ -1,3 +1,3 @@
 # devlog
 
-Repository for my personal game programming devlog.
+a repository for my personal game programming devlog
