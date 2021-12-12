@@ -68,6 +68,16 @@ then`. In that latter case, the `+` operator that raises an error if
 used on a **nil** value would never execute because the **if** statement 
 evaluates **nil** as **false**.
 
+A similar problem occurs if objects have a table such as a level that 
+has a table of treasure available to collect. In the case of a level 
+that does not contain any treasure, an uninitialized `treasure` table 
+will have a default value of **nil** and will Lua will raise an error if 
+the program tries to access an element in `treasure` if it is **nil**. 
+In this case every level has to have a table of treasure initialized to 
+be empty i.e. `treasure = {}`, or every attempt to access the table of 
+treasure must be preceded by a `if treasure then` statement so the code 
+doesn't attempt to access **nil** as if it is a table.
+
 ## assigning a value of **nil**
 
 As a general rule, I don't manually assign a value of **nil** to any 
