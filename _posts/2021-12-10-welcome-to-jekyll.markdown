@@ -3,9 +3,8 @@ layout: post
 title:  "Welcome to Jekyll!"
 date:   2021-12-10 19:44:12 -0800
 categories: jekyll update
+published: false
 ---
-
-Hello, World!  --Eric
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it 
 and re-build the site to see your changes. You can rebuild the site in 
