@@ -3,9 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+title: Devlog
 ---
-
-# devlog
 
 a blog for discussing my ongoing game and software development techniques
 
