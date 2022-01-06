@@ -12,5 +12,5 @@ level for ReTux and a holiday-themed contest-winning GameBoy ROM.
 My growing commercial library can be found at my [itch.io 
 profile](https://optimusdu.itch.io/) and my bonus level is bundled with 
 the official [ReTux](https://retux-game.github.io/) releases. My game 
-are is available at my [OpenGameArt 
+art is available at my [OpenGameArt 
 profile](https://opengameart.org/users/OptimusDu)

@@ -1,0 +1,142 @@
+---
+layout: post
+title:  "To Canvas or Not to Canvas"
+date:   2021-12-26 12:14:00 -0700
+categories: graphics, game programming, computer science
+published: false
+---
+
+Efficient video game graphics techniques most often involve assembling 
+large images from component parts *off screen* and then sending the 
+resulting image to be rendered all at once by the draw routine every 
+frame. Rendering engines historically have always used something or 
+other similar to the general description above, but there are a lot of 
+subtle differences.
+
+### Dirty Rendering
+
+I once learned a technique for rendering sprites on a background that 
+involves carefully re-painting a "clean" version of the background at a 
+sprite's "old" position and drawing the sprite again at its new 
+position, without having to re-draw the entire background every frame. 
+This is sometimes called "dirty rendering" and appears to be considered 
+a niche and archaic practice, but it must be used in circumstances where 
+there are limitations such as only having once "screen" available to 
+draw on, or an inability to re-assemble an entire tilemap every frame.
+
+### Screen Flipping
+
+Programming suites like QBASIC had specific graphics modes that provided 
+one or more extra "screens" or "pages" for drawing graphics *off screen* 
+and then signaling the rendering process to start showing it when you're 
+done. If I recall correctly, I would draw a frame of graphics on the 
+second page, "flip" the renderer to start showing that page which freed 
+up the first page to draw the *next* frame of graphics, and flip back to 
+the first page and so on.
+
+### Memory Registers and Nametables
+
+Older consoles like Atari home computers and Nintendo Entertainment 
+System had specific hard-coded areas of memory called nametables that 
+the processor would render in full, every frame, to the television 
+screen. A program simply had to load the right tiles (or characters) 
+into memory and make sure the character map referred to the right ones 
+in the right order.
+
+### Canvas
+
+Many modern game programming libraries allow you to create an unlimited 
+number of offscreen images each called a "canvas". You can then at any 
+point simply have the renderer draw that off-screen image to the actual 
+screen at any x,y position. This is useful for assembling images from 
+composite like the classic "tilemap" technique for backgrounds or 
+putting together a character from multiple parts (like a base body 
+sprite with hair, clothing, and weaponry drawn on top).
+
+### What If?
+
+Despite the differences described above, behind the curtain the graphics 
+processing units are doing pretty much the same thing. They are seeing 
+one or more complete images in a place in memory and displaying those 
+images to the screen or window more-or-less as-is. The difference 
+appears to be in how the programming library allows you to change or 
+update that image memory, and how many individual images the program is 
+updating every frame.
+
+I was recently inspired to imagine how I could write a game program most 
+efficiently if my library didn't provide me with "canvas" objects. In a 
+few ways the resulting program would have some very simplified rendering 
+processes by necessity. I wouldn't be able to use run-time composited 
+images or the "screen-flipping" techniques described above. Is there a 
+way to instead use the nametable or dirty rendering techniques to solve 
+this problem?
+
+#### Sprites
+
+My games always involve a number of "sprite" objects interacting on 
+screen. A process without an offscreen canvas available would make 
+little difference. I'll provide my draw routine with a short list of 
+sprite images (ten or fifteen maximum) to draw at x,y coordinates 
+representing the characters and objects in play, as usual. This is not 
+at all dissimilar to the Atari or NES, which would take a number of 
+sprite objects from memory and render them to the screen every frame.
+
+#### Tiles
+
+Tilemaps are another matter. Without at least one canvas object, there 
+is no image in memory that I can modify on-the-fly in order to update 
+the level graphics, much in the way that I could modify a nametable 
+that's constantly rerendered to the screen. In my reckoning, that leaves 
+me only two choices.
+
+Firstly, I could design my levels to be sparse. Gameplay would occur 
+mostly with sprites on the screen, with the occasional large bit of 
+level geometry represented not by 16x16 tiles but large 64x64 or 128x128 
+images essentially drawn to the screen like sprites.
+
+
+
+
+ There's no way to pre-assemble a larger 
+image from a number of smaller tiles and send the larger image to my 
+draw routine to render all at once each frame, and filling the screen 
+with dozens of individually-drawn tiles every frame is much too 
+inefficient. Instead I'll use 16x16 or 32x32 tiles to assemble large 
+images in an image editor representing various shapes of level 
+design--perhaps 64 to 128 or 256 pixels in size--in such a way that the 
+program would only have to show 5 or 6 of these images at a time to 
+represent a part of a level.
+
+#### Background
+
+If not using simple a black or flat-color filled background, I'd provide 
+one large image the size of the screen/window for my draw routine to 
+display behind the tiles and sprites.
+
+
+
+
+
+### Not to Canvas?
+
+Done correctly, I believe the above sprite, tile, and background 
+techniques would allow me to program a game that only has to redraw 
+fewer than 20 things to screen memory every frame, which sounds pretty 
+reasonable. What I've learned is I don't necessarily have to go nuts 
+with canvases to create a pretty simple game, and maybe I should keep 
+that in mind for minimalist game design in the future. But how does my 
+makeshift design theory shape up compared to, for instance, the NES 
+nametable system described above?
+
+The sprite object technique I settled on is not dissimilar to NES 
+sprites at all. The NES would simply render a series of sprite objects 
+to the screen on every frame. The tilemap, however, is a different 
+story. On the NES I would theoretically just put new tile references 
+into memory in order to represent the level layout, and the NES would 
+render the entire tilemap to the screen as an image. My technique on the 
+other hand must treat every piece of the level essentially as a sprite, 
+which is not comparable.
+
+Canvases appear to be required in order to emulate the nametable system, 
+because I need at least on persistent image object that I can modify 
+offscreen that will in turn be displayed onscreen
