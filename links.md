@@ -12,4 +12,4 @@ development.
 - [Programming in Lua](https://www.lua.org/pil/contents.html)
 - [Shawn Hargreaves Stuff](https://shawnhargreaves.com/)
 - [Software Library - AtariArchives.org](https://www.atariarchives.org/swlibrary/)
-- [Vector Math Tutorial](https://2dengine.com/?p=vectors)
+- [Game Development Tutorials - 2dengine](https://2dengine.com/?p=tutorials)
