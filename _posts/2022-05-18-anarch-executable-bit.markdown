@@ -3,6 +3,7 @@ layout: post
 title:  "0install - Anarch and the Executable Bit"
 date:   2022-05-18 17:15:00 -0800
 categories: 0install, packaging
+published: true
 ---
 
 0install - Anarch and the Executable Bit
