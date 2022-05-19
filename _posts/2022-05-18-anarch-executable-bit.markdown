@@ -2,12 +2,11 @@
 layout: post
 title:  "0install - Anarch and the Executable Bit"
 date:   2022-05-18 17:15:00 -0800
-categories: 0install, packaging
-published: true
+categories: zero-install, packaging
 ---
 
-0install - Anarch and the Executable Bit
------------------------------
+Zero Install - Anarch and the Executable Bit
+--------------------------------------------
 
 Several years ago I began learning to package software for computers
 using the Zero Install (0install) installation system. This process
