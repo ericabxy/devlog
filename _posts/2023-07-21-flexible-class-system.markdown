@@ -2,7 +2,7 @@
 layout: post
 title:   "Drafting a Flexible Class System"
 date:   2023-07-21 07:30:00 -0800
-categories: dungeons & dragons, dnd, homebrew
+categories: dungeons and dragons, dnd, homebrew
 published: true
 ---
 
