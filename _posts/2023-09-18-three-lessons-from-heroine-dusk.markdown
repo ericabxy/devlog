@@ -3,7 +3,7 @@ layout: post
 title:  "Important Lessons From Heroine Dusk"
 date:   2023-09-18 12:39:00 -0800
 categories: pixel art, game design
-published: false
+published: true
 ---
 
 Heroine Dusk is a game demo that contains of a set of scenery tiles 
