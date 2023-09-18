@@ -3,7 +3,7 @@ layout: post
 title:  "Old is New: Backgrounds and Objects"
 date:   2021-12-18 11:57:00 -0700
 categories: programming, computer science
-published: false
+published: true
 ---
 
 
