@@ -76,3 +76,15 @@ of this background is dark, with no hint of the moon visible. Because of
 this, walls that are invisible due to render distance do not reveal any 
 sort of outdoor sky. Unless there is no ceiling, in which case seeing 
 the night sky is expected.
+
+Avoid Symmetry
+--------------
+
+Its easy to fall into the trap of designing maps with symmetical 
+structutes. It can be especially disorienting with this tile system, 
+since the player's view can look identical from certain vantage points. 
+The demo provides a handy compass so the play will know when they change 
+direction, but it doesn't look great visually. Its best to avoid 
+horizontal and vertical symmetry to make the world look good while it is 
+being explored. Consider breaking up a square-shaped area with a single 
+terrain feature, and other techniques.
