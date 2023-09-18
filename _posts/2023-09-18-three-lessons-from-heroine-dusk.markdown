@@ -54,3 +54,25 @@ outer walls of a structure viewed from inside as will. Through clever
 use of map transitions, a doorway into and out of a town or building can 
 seem as if it is between two tiles, making the wall feel reasonable 
 thick instead of the width of an entire tile.
+
+Choose the Right Background
+---------------------------
+
+Bellanger provided two different backgrounds to use during exploration, 
+and there is a good reason for each of them. These backgrounds are meant 
+to display behind the rendered tiles. `nightsky` depicts a period of 
+twilight, just after the sun has set and there is still some glow left 
+in the sky; `tempest` depicts a moonlit scene of deep night.
+
+`nightsky` is designed for use in outdoor maps. Using it indoors, i.e. 
+on maps with ceiling tiles, can result in the player catching a glimpse 
+of the night sky in the distance even though there are walls and 
+ceilings in the way. This is due to render distance; walls that are more 
+than 3 tiles away from the player are invisible, revealing the 
+background.
+
+`tempest` is designed for both indoor and outdoor maps. The middle third 
+of this background is dark, with no hint of the moon visible. Because of 
+this, walls that are invisible due to render distance do not reveal any 
+sort of outdoor sky. Unless there is no ceiling, in which case seeing 
+the night sky is expected.
